@@ -22,7 +22,7 @@ public class SwiftFlutterExifRotationPlugin: NSObject, FlutterPlugin {
             if let updatedImage = image?.updateImageOrientationUpSide() {
                 
                 let fileManager = FileManager.default
-                let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("apple.jpg")
+                let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("image_\(Date().timeIntervalSince1970).jpg")
                 // let image = UIImage(named: "apple.jpg")
                 print(paths)
                 let imageData = updatedImage.jpegData(compressionQuality: 0.8); fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
